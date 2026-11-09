@@ -1,0 +1,26 @@
+{
+    "Clientes VIP": {
+        "persona_nome": "Magnata Digital",
+        "descricao_persona": "Cliente de alto poder aquisitivo, compra com frequência elevada (≈14 vezes/ano) e mantém relacionamento recente (última compra há ~12 dias). Valoriza exclusividade, atendimento premium e experiências personalizadas, demonstrando forte lealdade à marca.",
+        "estrategia_retencao": "Implementar um programa de fidelidade VIP com benefícios exclusivos (acesso antecipado a lançamentos, descontos progressivos, concierge de compras) e campanhas de marketing 1‑to‑1 baseadas em histórico de compra e preferências individuais.",
+        "copy_notificacao_push": "Olá {first_name}, desbloqueie agora seu acesso antecipado ao lançamento premium + 20% de desconto exclusivo para nossos clientes VIP!"
+    },
+    "Clientes Inativos": {
+        "persona_nome": "Ex‑Comprador Ocasional de Médio Ticket",
+        "descricao_persona": "Cliente que já realizou algumas compras de valor médio (≈R$341) mas com baixa frequência (≈1,3 compras) e está ausente há cerca de 180 dias, indicando desengajamento gradual após experiências pontuais positivas.",
+        "estrategia_retencao": "Campanha de win‑back com oferta limitada de 20% de desconto + bônus de pontos de fidelidade, enviada por e‑mail, SMS e push, segmentada por histórico de categorias adquiridas e reforçando benefícios exclusivos para reativação rápida.",
+        "copy_notificacao_push": "Sentimos sua falta! Volte agora e ganhe 20% de desconto na sua próxima compra. Use o código VOLTE20."
+    },
+    "Clientes Regulares": {
+        "persona_nome": "Comprador Frequente de Valor Médio",
+        "descricao_persona": "Cliente que realiza compras a cada 17‑18 dias, com média de 2,2 compras no período e gasto médio de R$557, demonstrando lealdade e busca por conveniência e bom custo‑benefício.",
+        "estrategia_retencao": "Implementar programa de fidelidade com pontos dobrados nas próximas compras, oferecer descontos progressivos a partir de R$500 e enviar e‑mails personalizados com recomendações baseadas no histórico de compra.",
+        "copy_notificacao_push": "Olá! Ganhe 10% de desconto na sua próxima compra. Use o código FREQ10 e aproveite seu benefício agora!"
+    },
+    "Clientes Promissores": {
+        "persona_nome": "Exploradores de Valor",
+        "descricao_persona": "Clientes que compram regularmente (≈4 vezes) e ainda têm potencial de aumento de gasto, com última compra há ~72 dias, indicando interesse latente e abertura a novas ofertas.",
+        "estrategia_retencao": "Campanha de recompensas progressivas: ofereça pontos extras ou desconto escalonado para compras nos próximos 30 dias, combinada com e‑mail de recomendações personalizadas baseadas no histórico de categorias mais adquiridas.",
+        "copy_notificacao_push": "⚡️ Volte agora e ganhe 15% de desconto extra na sua próxima compra! Só até domingo."
+    }
+}

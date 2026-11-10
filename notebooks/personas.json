@@ -1,26 +1,26 @@
 {
     "Clientes VIP": {
-        "persona_nome": "Magnata Digital",
-        "descricao_persona": "Cliente de alto poder aquisitivo, compra com frequência elevada (≈14 vezes/ano) e mantém relacionamento recente (última compra há ~12 dias). Valoriza exclusividade, atendimento premium e experiências personalizadas, demonstrando forte lealdade à marca.",
-        "estrategia_retencao": "Implementar um programa de fidelidade VIP com benefícios exclusivos (acesso antecipado a lançamentos, descontos progressivos, concierge de compras) e campanhas de marketing 1‑to‑1 baseadas em histórico de compra e preferências individuais.",
-        "copy_notificacao_push": "Olá {first_name}, desbloqueie agora seu acesso antecipado ao lançamento premium + 20% de desconto exclusivo para nossos clientes VIP!"
+        "persona_nome": "VIP Elite Shopper",
+        "descricao_persona": "Clientes de alto poder aquisitivo que compram frequentemente, alta recência, alto ticket médio, valorizam exclusividade e atendimento premium.",
+        "estrategia_retencao": "Programa de fidelidade exclusivo com benefícios personalizados, acesso antecipado a lançamentos, concierge de compras e ofertas de upsell baseadas em histórico.",
+        "copy_notificacao_push": "🎉 Seu próximo lançamento exclusivo já está disponível! Aproveite 15% extra como agradecimento por ser VIP."
     },
     "Clientes Inativos": {
-        "persona_nome": "Ex‑Comprador Ocasional de Médio Ticket",
-        "descricao_persona": "Cliente que já realizou algumas compras de valor médio (≈R$341) mas com baixa frequência (≈1,3 compras) e está ausente há cerca de 180 dias, indicando desengajamento gradual após experiências pontuais positivas.",
-        "estrategia_retencao": "Campanha de win‑back com oferta limitada de 20% de desconto + bônus de pontos de fidelidade, enviada por e‑mail, SMS e push, segmentada por histórico de categorias adquiridas e reforçando benefícios exclusivos para reativação rápida.",
+        "persona_nome": "Ex‑Comprador Esquecido",
+        "descricao_persona": "Cliente que já realizou compras de valor alto (≈ R$ 341) mas está sem atividade há cerca de 6 meses, com baixa frequência (≈ 1,3 compras). Demonstrou interesse anterior, porém perdeu o engajamento e precisa de um estímulo para retornar.",
+        "estrategia_retencao": "Campanha de win‑back com oferta limitada (ex.: 20 % de desconto ou frete grátis) enviada por e‑mail, SMS e push, segmentada por histórico de valor e com mensagem personalizada que ressalta a exclusividade e a saudade da marca.",
         "copy_notificacao_push": "Sentimos sua falta! Volte agora e ganhe 20% de desconto na sua próxima compra. Use o código VOLTE20."
     },
     "Clientes Regulares": {
         "persona_nome": "Comprador Frequente de Valor Médio",
-        "descricao_persona": "Cliente que realiza compras a cada 17‑18 dias, com média de 2,2 compras no período e gasto médio de R$557, demonstrando lealdade e busca por conveniência e bom custo‑benefício.",
-        "estrategia_retencao": "Implementar programa de fidelidade com pontos dobrados nas próximas compras, oferecer descontos progressivos a partir de R$500 e enviar e‑mails personalizados com recomendações baseadas no histórico de compra.",
-        "copy_notificacao_push": "Olá! Ganhe 10% de desconto na sua próxima compra. Use o código FREQ10 e aproveite seu benefício agora!"
+        "descricao_persona": "Cliente que compra a cada 2‑3 semanas, realiza ~2 compras por período analisado e gasta em média R$557, demonstrando lealdade moderada e sensibilidade a ofertas de valor agregado.",
+        "estrategia_retencao": "Implementar programa de fidelidade com pontos dobrados nas compras realizadas dentro de 15 dias e oferecer descontos exclusivos em categorias de alto ticket, além de e‑mail marketing segmentado com recomendações personalizadas baseadas no histórico de compra.",
+        "copy_notificacao_push": "⚡️ Oferta relâmpago: 20% de desconto extra nas próximas 48h! Aproveite seu benefício exclusivo e renove seus produtos favoritos agora."
     },
     "Clientes Promissores": {
-        "persona_nome": "Exploradores de Valor",
-        "descricao_persona": "Clientes que compram regularmente (≈4 vezes) e ainda têm potencial de aumento de gasto, com última compra há ~72 dias, indicando interesse latente e abertura a novas ofertas.",
-        "estrategia_retencao": "Campanha de recompensas progressivas: ofereça pontos extras ou desconto escalonado para compras nos próximos 30 dias, combinada com e‑mail de recomendações personalizadas baseadas no histórico de categorias mais adquiridas.",
-        "copy_notificacao_push": "⚡️ Volte agora e ganhe 15% de desconto extra na sua próxima compra! Só até domingo."
+        "persona_nome": "Explorador de Valor",
+        "descricao_persona": "Cliente que já realizou várias compras (4,08 em média) e gasta alto (R$ 1.801,78), mas ainda não compra com frequência diária, apresentando recência média de 71 dias, indicando potencial de engajamento maior.",
+        "estrategia_retencao": "Implementar programa de fidelidade com recompensas escalonadas, oferecer descontos exclusivos e acesso antecipado a lançamentos, além de campanhas de e‑mail personalizadas baseadas no histórico de compra para incentivar compras mais frequentes.",
+        "copy_notificacao_push": "Olá! 🎉 Ganhe 15% de desconto exclusivo nas próximas compras. Use o código VALOR15 e aproveite agora!"
     }
 }

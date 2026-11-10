@@ -4,3 +4,5 @@ matplotlib==3.11.2
 seaborn==0.13.2
 scikit-learn==1.9.1
 jupyter==1.1.1
+groq==1.7.0
+python-dotenv==1.2.4

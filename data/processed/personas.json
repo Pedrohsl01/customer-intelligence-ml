@@ -1,0 +1,26 @@
+{
+    "Clientes VIP": {
+        "persona_nome": "Magnata Digital",
+        "descricao_persona": "Cliente de alto valor, compra frequentemente (≈14 vezes ao ano) e visita o site a cada 12 dias, busca exclusividade e tratamento premium.",
+        "estrategia_retencao": "Implementar programa de fidelidade VIP com benefícios como acesso antecipado a lançamentos, concierge pessoal, descontos exclusivos e eventos privados, reforçando o valor percebido e incentivando compras recorrentes.",
+        "copy_notificacao_push": "Olá! Seu acesso VIP está pronto: pré‑venda exclusiva com 20% de desconto só para você. Aproveite agora!"
+    },
+    "Clientes Inativos": {
+        "persona_nome": "Ex-Comprador Esquecido",
+        "descricao_persona": "Cliente que está inativo há cerca de 180 dias, realiza poucas compras (≈1,3 por período) mas tem ticket médio alto (£341). Possui potencial de retorno se receber um incentivo relevante.",
+        "estrategia_retencao": "Campanha de reengajamento multicanal com oferta exclusiva de desconto ou benefício adicional, segmentada por e‑mail, SMS e push, destacando produtos de alto valor que já comprou e prazo limitado para estimular a decisão de compra.",
+        "copy_notificacao_push": "Sentimos sua falta! Volte agora e ganhe 20% de desconto na sua próxima compra acima de £100. Oferta válida 48h."
+    },
+    "Clientes Regulares": {
+        "persona_nome": "Comprador Frequente de Valor Médio",
+        "descricao_persona": "Cliente que realiza compras a cada 17‑18 dias, com média de 2,2 compras no período e gasto médio de £557, demonstra lealdade e busca conveniência e produtos de qualidade.",
+        "estrategia_retencao": "Implementar programa de fidelidade com pontos dobrados nas próximas compras, oferecer descontos exclusivos em produtos premium e enviar lembretes personalizados alinhados ao ciclo de compra de ~18 dias.",
+        "copy_notificacao_push": "Olá! 🎉 Ganhe 2x pontos na sua próxima compra e aproveite ofertas exclusivas só para você. Não perca!"
+    },
+    "Clientes Promissores": {
+        "persona_nome": "Explorador de Valor",
+        "descricao_persona": "Cliente com frequência de compra acima da média (4,08 compras) e ticket médio alto (£1.801,78), que ainda não compra com muita regularidade (recência de 71 dias). Valoriza ofertas exclusivas e demonstra potencial de se tornar um cliente fiel.",
+        "estrategia_retencao": "Implementar programa de fidelidade premium com recompensas escaláveis, oferecer acesso antecipado a lançamentos e descontos personalizados baseados no ticket médio, além de campanhas de reengajamento por e‑mail e SMS focadas em produtos de alta margem.",
+        "copy_notificacao_push": "Olá! 🎉 Aproveite 20% de desconto exclusivo nas próximas compras – só para você, nosso cliente promissor. Use o código VALOR20 agora!"
+    }
+}

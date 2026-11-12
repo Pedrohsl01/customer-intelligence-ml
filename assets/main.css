@@ -1,0 +1,83 @@
+/* Oculta a barra lateral exclusivamente na Landing Page */
+[data-testid="stSidebar"] {
+    display: none;
+}
+
+/* Ajuste do padding container principal */
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Banner de destaque (Hero Section) */
+.hero-container {
+    background: linear-gradient(135deg, #023059 0%, #1e4d79 100%);
+    padding: 2.5rem;
+    border-radius: 12px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Cards das funcionalidades/pilares */
+.feature-card {
+    background-color: #1a1c23;
+    border: 1px solid #2d313e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    height: 100%;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: #7C8EA6;
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 1.25rem;
+}
+
+.feature-card p {
+    color: #b0b3b8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Botão principal de Ação (CTA) */
+div.stButton > button:first-child {
+    background-color: #023059;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    border: 1px solid #7C8EA6;
+    transition: all 0.3s ease;
+    width: 100%;
+    cursor: pointer;
+}
+
+div.stButton > button:first-child:hover {
+    background-color: #7C8EA6;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}

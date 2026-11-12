@@ -1,0 +1,32 @@
+/* Botão Sair fixo no rodapé da sidebar */
+[data-testid="stSidebar"] [data-testid="stButton"] {
+    position: fixed;
+    bottom: 20px;
+    width: 240px;
+    z-index: 999;
+
+    /* Linha separadora */
+    border-top: 1px solid rgba(128, 128, 128, 0.4);
+    padding-top: 15px;
+}
+
+/* Reduz o espaçamento vertical da sidebar */
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    gap: 0.5rem;
+}
+
+/* Reduz o espaçamento interno dos elementos */
+[data-testid="stSidebar"] .element-container {
+    margin-bottom: 0.25rem;
+}
+
+/* Remove a rolagem vertical da sidebar */
+[data-testid="stSidebar"] [data-testid="stSidebarContent"] {
+    overflow-y: hidden !important;
+}
+
+/* Ocultar navegação automática do Streamlit */
+[data-testid="stSidebarNav"] {
+    display: none;
+}
+

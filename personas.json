@@ -1,7 +1,7 @@
 {
     "Clientes VIP": {
         "persona_nome": "VIP Elite Shopper",
-        "descricao_persona": "Clientes de alto poder aquisitivo que compram frequentemente, alta recência, alto ticket médio, valorizam exclusividade e atendimento premium.",
+        "descricao_persona": "Clientes de alto poder aquisitivo que compram frequentemente, baixa recência (poucos dias desde a última compra), alto ticket médio, valorizam exclusividade e atendimento premium.",
         "estrategia_retencao": "Programa de fidelidade exclusivo com benefícios personalizados, acesso antecipado a lançamentos, concierge de compras e ofertas de upsell baseadas em histórico.",
         "copy_notificacao_push": "🎉 Seu próximo lançamento exclusivo já está disponível! Aproveite 15% extra como agradecimento por ser VIP."
     },

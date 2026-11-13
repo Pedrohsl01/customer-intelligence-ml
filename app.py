@@ -16,6 +16,16 @@ st.set_page_config(
 )
 
 # -----------------------------------------------------------------------------
+# Dicionário de cores para os gráficos (usado no Plotly)
+# -----------------------------------------------------------------------------
+CORES_SEGMENTOS = {
+    "Clientes VIP": "#00CC96",          # Verde destaque (ou #EF553B / #636EFA)
+    "Clientes Promissores": "#636EFA",  # Azul
+    "Clientes Regulares": "#AB63FA",    # Roxo
+    "Clientes Inativos": "#EF553B"      # Vermelho/Laranja alerta
+}
+
+# -----------------------------------------------------------------------------
 # Carregar CSS personalizado
 # -----------------------------------------------------------------------------
 
@@ -158,7 +168,7 @@ else:
             
         with col_persona2:
             st.markdown("### 📱 Copy para Notificação Push (Mobile)")
-            st.code(persona_info.get("copy_notificacao_push", "N/A"), language="markdown")
+            st.info(persona_info.get("copy_notificacao_push", "N/A"))
             st.caption("Esta mensagem foi formulada automaticamente com base nas estatísticas RFM do grupo para uso em campanhas de CRM.")
     else:
         st.warning("Nenhuma informação de IA encontrada para este segmento.")
@@ -170,14 +180,13 @@ st.markdown("---")
 # -----------------------------------------------------------------------------
 st.subheader("📊 Análise Visual da Segmentação (K-Means)")
 
-tab1, tab2, tab3 = st.columns(3)
-
 # Gráfico 1: Dispersão Recência vs Monetário
 fig_dispersion = px.scatter(
     df_rfm,
     x="Recency",
     y="Monetary",
     color="Segmento",
+    color_discrete_map=CORES_SEGMENTOS,  # ALTERAÇÃO 2: Aplica o mapa de cores fixo na dispersão
     size="Frequency",
     hover_data=["CustomerID"],
     log_y=True,
@@ -195,6 +204,8 @@ with col_chart1:
         df_resumo,
         names="Segmento",
         values="Quantidade_Clientes",
+        color="Segmento",                   
+        color_discrete_map=CORES_SEGMENTOS, 
         title="Proporção de Clientes por Segmento",
         hole=0.4,
         template="plotly_white"
@@ -208,8 +219,9 @@ with col_chart2:
         x="Segmento",
         y="Monetary",
         color="Segmento",
+        color_discrete_map=CORES_SEGMENTOS, 
         title="Valor Monetário Médio (£) por Cluster",
-        labels={"Monetary": "Ticket Médio (£)"},
+        labels={"Monetary": "Gasto Total Médio por Cliente (£)"}, 
         template="plotly_white"
     )
     st.plotly_chart(fig_bar, use_container_width=True)

@@ -93,3 +93,24 @@ customer-intelligence-ml/
 ├── .gitignore                     # Arquivos ignorados pelo Git (incluindo .env)
 ├── requirements.txt               # Dependências do projeto
 └── README.md                      # Documentação do projeto
+---
+
+## 🚧 Evolução para SaaS B2B Multi-Tenant (em construção)
+
+O projeto está sendo transformado em uma plataforma onde várias empresas usam a mesma aplicação e cada uma vê apenas os próprios dados.
+
+- **`src/customer_intel/`** — pipeline extraído dos notebooks para ser executado a cada importação de dados de uma empresa: limpeza com mapeamento de colunas, RFM com valor monetário **líquido** (descontando devoluções), K-Means com **nomeação automática dos segmentos** e geração de personas com o tom de voz da empresa.
+- **`supabase/migrations/`** — schema PostgreSQL (Supabase) com `empresa_id` em todas as tabelas, **Row Level Security**, papéis por empresa (`admin`, `analista`, `leitor`) e histórico de execuções de segmentação.
+- **`supabase/tests/`** — testes pgTAP que garantem que uma empresa não lê nem altera dados de outra.
+- **`plataforma/` + `paginas/`** — login e cadastro com **Supabase Auth** (o hash de senha fica com o Supabase), cadastro da empresa (nicho e tom de voz usados no prompt da IA) e dashboard lendo apenas os dados da empresa logada. Sem login, o dashboard continua como demonstração com o dataset público.
+- **Importar Dados** (`paginas/importar.py` + `plataforma/importacao.py`) — a empresa envia um `.csv`/`.xlsx` de vendas, confirma o mapeamento de colunas (sugerido automaticamente) e clica em **Processar Base**: o sistema limpa os dados, grava em `transacoes`, recalcula o RFM, roda o K-Means só com os clientes daquela empresa e grava uma nova execução em `clientes_segmentados`.
+- **Personas por empresa** (`plataforma/estrategias.py`) — após cada importação a IA gera uma persona, uma estratégia de retenção e um **pacote de campanha** por segmento: e-mail (assunto + corpo em HTML simples), mensagem de WhatsApp, notificação push e oferta/cupom sugerido. O prompt recebe o nome, o nicho e o tom de voz da empresa e os **produtos mais comprados pelo segmento**. Só estatísticas agregadas vão para a LLM, e o HTML devolvido é sanitizado. Dá para gerar de novo pelo dashboard.
+- **Ativar campanha** (`plataforma/campanhas.py`) — prévias de push e WhatsApp com o nome do cliente, lista para disparo em CSV (uma linha por cliente com as mensagens personalizadas e os contatos importados), envio de e-mail de teste via Resend para o usuário logado e simulador de retorno da campanha.
+- Configuração: copie `.streamlit/secrets.toml.example` para `.streamlit/secrets.toml` e preencha a URL e a chave **anon** do projeto Supabase.
+
+```bash
+pip install -r requirements-dev.txt
+pytest                # testes do pipeline
+supabase db reset     # aplica as migrations no Supabase local
+supabase test db      # testes de isolamento (RLS)
+```

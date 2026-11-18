@@ -1,0 +1,7 @@
+# Tema base do app. Os detalhes (cartões, sidebar, tipografia) ficam em assets/theme.css.
+[theme]
+base = "dark"
+primaryColor = "#F2B544"            # âmbar: única cor de destaque da interface
+backgroundColor = "#0D1220"          # azul-tinta
+secondaryBackgroundColor = "#151B2C" # painéis, sidebar e campos
+textColor = "#E8ECF4"

@@ -17,3 +17,10 @@ Thumbs.db
 
 # Streamlit secrets
 .streamlit/secrets.toml
+# Supabase CLI
+supabase/.branches/
+supabase/.temp/
+
+# Testes
+.pytest_cache/
+.claude/

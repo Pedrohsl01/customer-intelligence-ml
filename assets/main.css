@@ -1,83 +1,264 @@
+/* =============================================================================
+   Landing page (views_home.py). Tokens e componentes comuns estão em assets/theme.css.
+   ========================================================================== */
+
 /* Oculta a barra lateral exclusivamente na Landing Page */
-[data-testid="stSidebar"] {
+[data-testid="stSidebar"],
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stExpandSidebarButton"] {
     display: none;
 }
 
-/* Ajuste do padding container principal */
-.block-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.block-container,
+[data-testid="stMainBlockContainer"] {
+    max-width: 1120px;
+    padding-top: 2.5rem;
 }
 
-/* Banner de destaque (Hero Section) */
-.hero-container {
-    background: linear-gradient(135deg, #023059 0%, #1e4d79 100%);
-    padding: 2.5rem;
-    border-radius: 12px;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
+/* --- Topo ------------------------------------------------------------------ */
 
-.hero-title {
-    margin-bottom: 0.5rem;
-    font-size: 2.5rem;
+.topo {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 1rem;
     font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ci-texto);
 }
 
-.hero-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
+/* --- Hero ------------------------------------------------------------------ */
+
+.hero {
+    padding: 4.5rem 0 1.75rem;
+}
+
+.hero h1 {
     margin: 0;
+    padding: 0;
+    max-width: 18ch;
+    font-size: clamp(2.25rem, 1.2rem + 4.2vw, 4.25rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+    text-wrap: balance;
+    color: var(--ci-texto);
 }
 
-/* Cards das funcionalidades/pilares */
-.feature-card {
-    background-color: #1a1c23;
-    border: 1px solid #2d313e;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: left;
-    height: 100%;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+.hero p {
+    margin: 1.5rem 0 0;
+    max-width: 58ch;
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    color: var(--ci-texto-suave);
 }
 
-.feature-card:hover {
-    transform: translateY(-4px);
-    border-color: #7C8EA6;
+/* Botões do hero: lado a lado, sem ocupar a largura toda */
+.st-key-hero_acoes {
+    max-width: 30rem;
+    margin-bottom: 3.5rem;
 }
 
-.feature-card h3 {
-    margin-top: 0;
-    color: #ffffff;
-    font-size: 1.25rem;
-}
-
-.feature-card p {
-    color: #b0b3b8;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* Botão principal de Ação (CTA) */
-div.stButton > button:first-child {
-    background-color: #023059;
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 0.75rem 2rem;
-    border-radius: 8px;
-    border: 1px solid #7C8EA6;
-    transition: all 0.3s ease;
+.st-key-hero_acoes .stButton > button {
     width: 100%;
-    cursor: pointer;
+    min-height: 3rem;
+    font-size: 1rem;
 }
 
-div.stButton > button:first-child:hover {
-    background-color: #7C8EA6;
-    color: #ffffff;
-    border-color: #ffffff;
-    transform: translateY(-2px);
+/* --- A base em segmentos (peça principal da página) ------------------------ */
+
+.base {
+    padding: 1.75rem;
+    background: var(--ci-painel);
+    border: 1px solid var(--ci-linha);
+    border-radius: var(--ci-raio);
+    box-shadow: var(--ci-sombra);
+}
+
+.base__titulo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    margin: 0 0 1.25rem;
+}
+
+.base__titulo h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.125rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+}
+
+.base__titulo span {
+    font-size: 0.875rem;
+    color: var(--ci-texto-suave);
+}
+
+.base__barra {
+    display: flex;
+    gap: 3px;
+    height: 44px;
+    border-radius: var(--ci-raio-controle);
+    overflow: hidden;
+}
+
+.base__fatia {
+    flex: var(--peso) 1 0;      /* largura proporcional ao número de clientes */
+    min-width: 0;
+    background: var(--cor);
+    transform-origin: left center;
+    animation: crescer 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.base__fatia:nth-child(2) { animation-delay: 90ms; }
+.base__fatia:nth-child(3) { animation-delay: 180ms; }
+.base__fatia:nth-child(4) { animation-delay: 270ms; }
+.base__fatia:nth-child(n + 5) { animation-delay: 360ms; }
+
+@keyframes crescer {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.base__lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+    gap: 1.25rem 1.5rem;
+    margin: 1.5rem 0 0 !important;
+    padding: 0 !important;      /* o Streamlit recua listas dentro de markdown */
+    list-style: none;
+}
+
+.base__item {
+    margin: 0 !important;
+    padding-left: 0.875rem;
+    border-left: 3px solid var(--cor);
+}
+
+.base__item b {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ci-texto);
+}
+
+.base__item strong {
+    display: block;
+    margin: 0.125rem 0 0.25rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ci-texto);
+}
+
+.base__item strong small {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--ci-texto-suave);
+}
+
+.base__item p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--ci-texto-suave);
+}
+
+/* --- Como funciona (é uma sequência: por isso os números) ------------------ */
+
+.etapas {
+    margin: 4.5rem 0 0;
+}
+
+.etapas h2 {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.etapas ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1rem;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none;
+    counter-reset: etapa;
+}
+
+.etapas li {
+    margin: 0 !important;
+    counter-increment: etapa;
+    padding: 1.5rem;
+    background: var(--ci-painel);
+    border: 1px solid var(--ci-linha);
+    border-radius: var(--ci-raio);
+    transition: border-color 150ms ease;
+}
+
+.etapas li:hover {
+    border-color: var(--ci-linha-forte);
+}
+
+.etapas li::before {
+    content: counter(etapa);
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--ci-linha-forte);
+    border-radius: 50%;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--ci-ambar);
+    font-variant-numeric: tabular-nums;
+}
+
+.etapas h3 {
+    margin: 0 0 0.5rem;
+    padding: 0;
+    font-size: 1.0625rem;
+    font-weight: 650;
+}
+
+.etapas p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--ci-texto-suave);
+}
+
+.rodape {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+    margin-top: 4.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ci-linha);
+    font-size: 0.8125rem;
+    color: var(--ci-texto-suave);
+}
+
+/* --- Telas pequenas -------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .hero { padding: 2.5rem 0 1.25rem; }
+    .hero p { font-size: 1.0625rem; }
+    .st-key-hero_acoes { max-width: none; margin-bottom: 2.5rem; }
+    .base { padding: 1.25rem; }
+    .base__barra { height: 32px; }
+    .etapas { margin-top: 3rem; }
+    .rodape { margin-top: 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .base__fatia { animation: none; }
 }

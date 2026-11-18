@@ -1,0 +1,335 @@
+/* =============================================================================
+   Customer Intelligence — sistema visual (carregado em todas as páginas por home.py)
+
+   Paleta
+     tinta    #0D1220  fundo da página
+     painel   #151B2C  cartões, sidebar, campos
+     relevo   #1B2236  hover e superfícies elevadas
+     linha    rgba(148,163,184,.16)  bordas de 1px
+     texto    #E8ECF4  /  texto suave #9AA6BD
+     âmbar    #F2B544  único destaque (ação principal, foco, seleção)
+   As cores dos segmentos (verde, azul, roxo, laranja, vermelho) pertencem aos
+   dados: a interface não as usa para decoração.
+
+   Raio: 12px em cartões, 8px em controles, 999px em etiquetas.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap");
+
+:root {
+    --ci-tinta: #0D1220;
+    --ci-painel: #151B2C;
+    --ci-relevo: #1B2236;
+    --ci-linha: rgba(148, 163, 184, 0.16);
+    --ci-linha-forte: rgba(148, 163, 184, 0.32);
+    --ci-texto: #E8ECF4;
+    --ci-texto-suave: #9AA6BD;
+    --ci-ambar: #F2B544;
+    --ci-ambar-claro: #F7CB73;
+    --ci-sobre-ambar: #1A1304;
+    --ci-raio: 12px;
+    --ci-raio-controle: 8px;
+    --ci-sombra: 0 1px 2px rgba(3, 7, 18, 0.4), 0 8px 24px -12px rgba(3, 7, 18, 0.6);
+    --ci-fonte: "Schibsted Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* --- Base ------------------------------------------------------------------ */
+
+html, body, .stApp, .stApp button, .stApp input, .stApp textarea, .stApp select,
+[data-testid="stMarkdownContainer"], [data-testid="stSidebar"] {
+    font-family: var(--ci-fonte);
+}
+
+/* Ícones do Streamlit usam fonte própria: não podem herdar a tipografia do app. */
+[data-testid="stIconMaterial"], .material-symbols-rounded {
+    font-family: "Material Symbols Rounded" !important;
+}
+
+.stApp {
+    background: var(--ci-tinta);
+    color: var(--ci-texto);
+}
+
+[data-testid="stHeader"] {
+    background: transparent;
+}
+
+.block-container,
+[data-testid="stMainBlockContainer"] {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    max-width: 1280px;
+}
+
+h1, h2, h3 {
+    font-family: var(--ci-fonte);
+    letter-spacing: -0.02em;
+    color: var(--ci-texto);
+}
+
+h1 { font-size: 2rem; font-weight: 700; line-height: 1.15; padding-bottom: 0.25rem; }
+h2 { font-size: 1.375rem; font-weight: 650; line-height: 1.25; }
+h3 { font-size: 1.0625rem; font-weight: 600; line-height: 1.3; }
+
+[data-testid="stCaptionContainer"], .stCaption {
+    color: var(--ci-texto-suave);
+}
+
+hr {
+    border-color: var(--ci-linha) !important;
+    margin: 2rem 0 !important;
+}
+
+a { color: var(--ci-ambar-claro); }
+
+:focus-visible {
+    outline: 2px solid var(--ci-ambar);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* --- Sidebar --------------------------------------------------------------- */
+
+[data-testid="stSidebar"] {
+    background: var(--ci-painel);
+    border-right: 1px solid var(--ci-linha);
+}
+
+[data-testid="stSidebar"] h1 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: 0;
+}
+
+/* Navegação entre páginas */
+[data-testid="stSidebarNavLink"] {
+    border-radius: var(--ci-raio-controle);
+    padding: 0.5rem 0.75rem;
+    transition: background-color 150ms ease;
+}
+
+[data-testid="stSidebarNavLink"]:hover {
+    background: var(--ci-relevo);
+}
+
+[data-testid="stSidebarNavLink"][aria-current="page"] {
+    background: var(--ci-relevo);
+    box-shadow: inset 2px 0 0 var(--ci-ambar);
+}
+
+/* Seletor de segmento: cada opção vira uma linha clicável */
+[data-testid="stSidebar"] [data-testid="stRadio"] > label {
+    color: var(--ci-texto-suave);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    margin-bottom: 0.375rem;
+}
+
+[data-testid="stSidebar"] [role="radiogroup"] {
+    gap: 2px;
+}
+
+[data-testid="stSidebar"] [data-testid="stRadioOption"] {
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem 0.625rem;
+    border: 1px solid transparent;
+    border-radius: var(--ci-raio-controle);
+    cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+[data-testid="stSidebar"] [data-testid="stRadioOption"]:hover {
+    background: var(--ci-relevo);
+}
+
+[data-testid="stSidebar"] [data-testid="stRadioOption"]:has(input:checked) {
+    background: var(--ci-relevo);
+    border-color: var(--ci-linha-forte);
+}
+
+[data-testid="stSidebar"] [data-testid="stRadioOption"]:has(input:checked) p {
+    font-weight: 600;
+}
+
+/* --- Botões ---------------------------------------------------------------- */
+
+.stButton > button,
+.stDownloadButton > button,
+.stFormSubmitButton > button {
+    min-height: 2.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--ci-raio-controle);
+    border: 1px solid var(--ci-linha-forte);
+    background: var(--ci-painel);
+    color: var(--ci-texto);
+    font-weight: 600;
+    white-space: normal;       /* rótulos longos quebram em vez de cortar */
+    cursor: pointer;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover,
+.stFormSubmitButton > button:hover {
+    background: var(--ci-relevo);
+    border-color: var(--ci-texto-suave);
+    color: var(--ci-texto);
+}
+
+.stButton > button[kind="primary"],
+.stFormSubmitButton > button[kind="primaryFormSubmit"],
+.stFormSubmitButton > button[kind="primary"] {
+    background: var(--ci-ambar);
+    border-color: var(--ci-ambar);
+    color: var(--ci-sobre-ambar);
+}
+
+.stButton > button[kind="primary"]:hover,
+.stFormSubmitButton > button[kind="primaryFormSubmit"]:hover,
+.stFormSubmitButton > button[kind="primary"]:hover {
+    background: var(--ci-ambar-claro);
+    border-color: var(--ci-ambar-claro);
+    color: var(--ci-sobre-ambar);
+}
+
+.stButton > button[kind="primary"] p,
+.stFormSubmitButton > button[kind^="primary"] p {
+    color: var(--ci-sobre-ambar);
+}
+
+.stButton > button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* --- Métricas -------------------------------------------------------------- */
+
+[data-testid="stMetric"] {
+    background: var(--ci-painel);
+    border: 1px solid var(--ci-linha);
+    border-radius: var(--ci-raio);
+    padding: 1.125rem 1.25rem;
+    box-shadow: var(--ci-sombra);
+    transition: border-color 150ms ease;
+}
+
+[data-testid="stMetric"]:hover {
+    border-color: var(--ci-linha-forte);
+}
+
+[data-testid="stMetricLabel"] p {
+    color: var(--ci-texto-suave);
+    font-size: 0.8125rem;
+    font-weight: 500;
+}
+
+[data-testid="stMetricValue"] {
+    font-size: 1.625rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    white-space: normal;       /* evita "£ 2,04…" cortado em telas estreitas */
+    overflow-wrap: anywhere;
+    line-height: 1.2;
+}
+
+[data-testid="stMetricValue"] > div {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+
+/* --- Alertas (st.info / success / warning / error) ------------------------- */
+
+[data-testid="stAlert"] {
+    border-radius: var(--ci-raio);
+}
+
+[data-testid="stAlertContainer"] {
+    border: 1px solid var(--ci-linha);
+    border-radius: var(--ci-raio);
+    padding: 0.875rem 1rem;
+    line-height: 1.55;
+}
+
+/* --- Cartões (containers com key="cartao_...") ----------------------------- */
+
+[class*="st-key-cartao_"] {
+    background: var(--ci-painel);
+    border: 1px solid var(--ci-linha);
+    border-radius: var(--ci-raio);
+    padding: 1.25rem;
+    box-shadow: var(--ci-sombra);
+}
+
+/* --- Campos, abas, expansores, tabela -------------------------------------- */
+
+[data-baseweb="input"], [data-baseweb="textarea"], [data-baseweb="select"] > div {
+    border-radius: var(--ci-raio-controle) !important;
+}
+
+[data-testid="stForm"] {
+    background: var(--ci-painel);
+    border: 1px solid var(--ci-linha);
+    border-radius: var(--ci-raio);
+    padding: 1.5rem;
+}
+
+[data-testid="stExpander"] details {
+    border: 1px solid var(--ci-linha);
+    border-radius: var(--ci-raio);
+    background: transparent;
+}
+
+[data-testid="stFileUploaderDropzone"] {
+    background: var(--ci-painel);
+    border: 1px dashed var(--ci-linha-forte);
+    border-radius: var(--ci-raio);
+}
+
+[data-testid="stDataFrame"] {
+    border: 1px solid var(--ci-linha);
+    border-radius: var(--ci-raio);
+    overflow: hidden;
+}
+
+[data-baseweb="tab-list"] {
+    gap: 0.25rem;
+    border-bottom: 1px solid var(--ci-linha);
+}
+
+[data-baseweb="tab"] {
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+}
+
+[data-testid="stCode"] pre, .stCode pre {
+    border: 1px solid var(--ci-linha);
+    border-radius: var(--ci-raio-controle);
+}
+
+/* --- Telas pequenas -------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .block-container,
+    [data-testid="stMainBlockContainer"] {
+        padding: 2rem 1rem 3rem;
+    }
+
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.1875rem; }
+
+    [data-testid="stMetricValue"] { font-size: 1.375rem; }
+
+    .stButton > button,
+    .stDownloadButton > button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
